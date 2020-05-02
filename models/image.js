@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-    filePath: {
+    imageUrl: {
         type: String,
         required: true,
       }

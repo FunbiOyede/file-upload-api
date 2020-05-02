@@ -8,7 +8,7 @@
 ## Running the application locally
  * Clone this repository
 
-    ```git clone https://github.com/OpesanyaAdebayo/file-upload-api```
+    ```git clone https://github.com/FunbiOyede/file-upload-api.git```
 
  * Install dependencies
 

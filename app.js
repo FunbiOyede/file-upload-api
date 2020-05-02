@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const multer = require('multer');
 const Router = require('./routes/index');
+const path = require("path")
 const app = express();
 
 app.use(logger('dev'));
@@ -17,8 +18,17 @@ const fileStorage = multer.diskStorage({
     }
   })
 
-app.use(multer({storage:fileStorage}).single('image'))
+  const fileFilter = (req,file,cb) =>{
+    if(file.mimetype ==='image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg'){
+      cb(null,true)
+    }
+    cb(null,false)
+  }
+
+app.use(multer({storage:fileStorage,fileFilter:fileFilter}).single('image'))
 app.use(Router)
+app.use('/images',express.static(path.join(__dirname,"images")))
+app.use('/pdf',express.static(path.join(__dirname,"pdfs")))
 
 
 module.exports  = app

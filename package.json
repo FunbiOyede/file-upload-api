@@ -9,6 +9,7 @@
     "dev": "nodemon server.js"
   },
   "devDependencies": {
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pdfkit": "^0.11.0"
   }
 }
